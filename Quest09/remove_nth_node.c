@@ -1,21 +1,8 @@
-
-
-
-#ifndef STRUCT_LISTNODE
-#define STRUCT_LISTNODE
-typedef struct s_listnode
-{
-    int val;
-    struct s_listnode* next;
-} listnode;
-#endif
-
-
 listnode* remove_nth_node_from_end_of_list(listnode* param_1, int param_2)
 {
     // To store length of the linked list
     int len = 0;
-    listnode tmp = param_1;
+    listnode* tmp = param_1;
     while (tmp != NULL) {
         len++;
         tmp = tmp->next;
@@ -25,7 +12,7 @@ listnode* remove_nth_node_from_end_of_list(listnode* param_1, int param_2)
     if (param_2 > len)
     {
         printf("Can't remove %dth element, list is smaller", param_2);
-        return head;
+        return param_1;
     }
 
         // We need to remove head node
@@ -49,5 +36,3 @@ listnode* remove_nth_node_from_end_of_list(listnode* param_1, int param_2)
         return param_1;
     }
 }
-
-
